@@ -46,7 +46,7 @@ bio.display = function() {
 
     if (bio.skills.length > 0) {
         $("#header").append(HTMLskillsStart);
-        for(i=0; i<bio.skills.length; i++) {
+        for(var i=0; i<bio.skills.length; i++) {
             var formattedSkill = HTMLskills.replace("%data%", bio.skills[i]);
             $("#skills").append(formattedSkill);
         }
@@ -70,15 +70,15 @@ var education = {
         "location": "Burhanpur",
         "major": "Science"
     }],
-    "onlineeducation": [{
+    "onlineeCourses": [{
         "title": "Front End Developer",
         "school": "Udacity",
         "dates": "September 2016-Till date",
-        "URL": "https://www.udacity.com"
+        "url": "https://www.udacity.com"
     }]
 };
 var schoolsLength = education.schools.length;
-var onlineLength = education.onlineeducation.length;
+var onlineLength = education.onlineeCourses.length;
 
 //Display function for education
 education.display = function() {
@@ -98,13 +98,13 @@ education.display = function() {
 
     $(".education-entry:last").append(HTMLonlineClasses);
     for (var j = 0; j < onlineLength; j++) {
-        var formattedTitle = HTMLonlineTitle.replace("%data%", education.onlineeducation[j].title);
-        var formattedSchool = HTMLonlineSchool.replace("%data%", education.onlineeducation[j].school);
+        var formattedTitle = HTMLonlineTitle.replace("%data%", education.onlineeCourses[j].title);
+        var formattedSchool = HTMLonlineSchool.replace("%data%", education.onlineeCourses[j].school);
         var formattedTitleSchool = formattedTitle + formattedSchool;
         $(".education-entry:last").append(formattedTitleSchool);
-        var formattedDate = HTMLonlineDates.replace("%data%", education.onlineeducation[j].dates);
+        var formattedDate = HTMLonlineDates.replace("%data%", education.onlineeCourses[j].dates);
         $(".education-entry:last").append(formattedDate);
-        var formattedURL = HTMLonlineURL.replace("%data%", education.onlineeducation[j].URL);
+        var formattedURL = HTMLonlineURL.replace("%data%", education.onlineeCourses[j].url);
         $(".education-entry:last").append(formattedURL);
     }
 };
